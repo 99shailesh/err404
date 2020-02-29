@@ -21,17 +21,17 @@
 
 <?php
 
-      $url = $_POST["url"];
+      //$url = $_POST["url"];
       $question = $_POST["text"];
       $user_id = $_SESSION["id"];
       $timestamp = date('Y-m-d g:i:s');
 
-      $validURL = preg_match('/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/i', $url);
+      //$validURL = preg_match('/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/i', $url);
       $validQuestion = strlen($question) <= 300;
 
-      if($validURL && $validQuestion) {
+      if($validQuestion) {
 
-      require_once('../../mysqli-connect.php');
+      require_once('mysqli-connect.php');
 
       $sql = "CREATE TABLE Questions
               (

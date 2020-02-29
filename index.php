@@ -11,14 +11,18 @@
   <body onload="updateMostRecent(); setInterval( function() { refreshIndex(); }, 5000);">
   	<header id="fixed-header">
   		<!-- <a href="./index.php"> <img id="logo" src="logo.png" alt="Quora"/> </a> -->
+  	<header id="fixed-header" >
+  		<a href="./index.php"> <img id="logo1" src="logo1.png" alt="Quora"/> </a>
   		<?php 
 	    session_start();
 	    $loggedin = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
 	    if($loggedin) : ?>
-	    <a href="./logout.php" id="header-login">Logout</a>
+	    <a href="./logout.php" id="header-login" class="lg"><button>Logout</button></a>
 	    <?php else : ?>
-		  <a href="./login.php" id="header-login">Login</a>
-		  <a href="./signup.php" id="header-login">Signup</a>
+		  <a href="./login.php" id="header-login">Login</a><BR>
+		  <!-- <a href="./signup.php" id="header-login">Signup</a> -->
+  		<!-- <a href="./login.php" id="header-login" class="lg"><button>Login</button></a> -->
+		<!-- <a href="./signup.php" id="header-login" class="lg"><button>SignUp</button></a> -->
   		<?php endif; ?>
 	</header>
 
@@ -124,3 +128,32 @@
 -->
   </body>
 </html>
+<style type="text/css">
+	img
+	{
+		
+		border:1px solid white;
+		border-radius: 25%;
+		margin-left:45px;
+		margin-bottom:20px;
+
+	}
+
+	.lg button
+	 {
+  		background-color: #379683;
+  		border: none;
+  		color: white;
+  		padding: 15px 32px;
+   		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+  		font-size: 16px;
+  		margin: 20px 10px;
+  		cursor: pointer;
+}
+	.lg button:hover
+	{
+		opacity:0.5;
+	}
+</style>
