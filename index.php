@@ -17,7 +17,7 @@
 	    if($loggedin) : ?>
 	    <a href="./logout.php" id="header-login">Logout</a>
 	    <?php else : ?>
-  		<a href="./form-login.php" id="header-login">Login</a>
+  		<a href="./login.php" id="header-login">Login</a>
   		<?php endif; ?>
 	</header>
 
