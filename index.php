@@ -10,14 +10,15 @@
 
   <body onload="updateMostRecent(); setInterval( function() { refreshIndex(); }, 5000);">
   	<header id="fixed-header">
-  		<a href="./index.php"> <img id="logo" src="logo.png" alt="Quora"/> </a>
+  		<!-- <a href="./index.php"> <img id="logo" src="logo.png" alt="Quora"/> </a> -->
   		<?php 
 	    session_start();
 	    $loggedin = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
 	    if($loggedin) : ?>
 	    <a href="./logout.php" id="header-login">Logout</a>
 	    <?php else : ?>
-  		<a href="./login.php" id="header-login">Login</a>
+		  <a href="./login.php" id="header-login">Login</a>
+		  <a href="./signup.php" id="header-login">Signup</a>
   		<?php endif; ?>
 	</header>
 

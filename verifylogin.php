@@ -7,7 +7,7 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 
 
-$sql = "SELECT * FROM Users WHERE email='" . htmlspecialchars($email) . "'";
+$sql = "SELECT * FROM users WHERE email='" . htmlspecialchars($email) . "'";
 $response = $conn->query($sql);
 
 if($response) {

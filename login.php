@@ -38,7 +38,7 @@
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left" style="margin-left:45%;">
-                        			<h3>Login</h3>
+                        			<h3>LOGIN</h3>
                             		<!-- <p>Enter your email and password to log on:</p> -->
                         		</div>
 							</div>
@@ -46,20 +46,21 @@
 			                    <form role="form" action="./verifylogin.php" method="post" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Email</label>
-			                        	<input type="text" name="email" placeholder="Email..." class="form-username form-control" id="form-username">
+			                        	<input type="text" name="email" placeholder="Email..." class="form-username form-control" id="form-username" required="true">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
+			                        	<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password" required="true">
 			                        </div>
-									<button type="submit" class="btn" style="background-color:#4caf50;">Sign in!</button>
+									<button type="submit" class="btn" style="background-color:#4caf50;">Login</button>
 
 								</form>
 								<BR>
-								<form role="form" action="./signup.php">
+								<!-- <form role="form" action="./signup.php">
 									<button type="submit" class="btn">Signup</button>
 									<p color:"white">Create an Account</p>
-								</form>
+								</form> -->
+								<p id="signup-prompt;" text-align="center;"> Create an account? <a href="./signup.php">SignUp!</a></p>
 		                    </div>
 						</div>
 					</div>
