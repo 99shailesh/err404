@@ -56,9 +56,10 @@
 
 								</form>
 								<BR>
-								   
-									<button type="submit" class="btn"><a href="signup.php">Signup</a></button>
+								<form role="form" action="./signup.php">
+									<button type="submit" class="btn">Signup</button>
 									<p color:"white">Create an Account</p>
+								</form>
 		                    </div>
 						</div>
 					</div>
