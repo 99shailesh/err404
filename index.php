@@ -5,7 +5,10 @@
     <title>Index</title>
     <link rel="stylesheet" type="text/css" href="mystyle.css" >
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,700' rel='stylesheet' type='text/css' >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="script.js"> </script>
+    <link rel="icon" href="img/icon1.png" type='image/x-icon'/>
+    <img src="https://img.icons8.com/ios-glyphs/30/000000/document.png">
   </head>
 
   <body onload="updateMostRecent(); setInterval( function() { refreshIndex(); }, 5000);">

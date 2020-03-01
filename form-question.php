@@ -13,7 +13,7 @@
 
     <?php 
     session_start();
-    //if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) : ?>
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) : ?>
 
   	<h1 id="form-title" class="center">Submit a Question</h1>
   	<div class="center" id="submit-section">
@@ -33,13 +33,13 @@
     <script type="text/javascript" src="script.js"> </script>
     <script type="text/javascript" src="script-QA.js"> </script>
 
-    <?php //else : ?>
+    <?php else : ?>
 
     <div class="center post-display" id="submit-section">
       You must be logged in to view this page.
     </div>
 
-    <?php //endif; ?>
+    <?php endif; ?>
 
   </body>
 </html>

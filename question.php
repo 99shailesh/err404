@@ -8,17 +8,19 @@
   </head>
   <body>
   	<header>
-  	<a href="./index.php"> <img id="logo" src="logo.png" alt="Quora"/> </a>
+  	<a href="./index.php"> <img id="logo" src="logo1.png" alt="Quora"/> </a>
   	</header>
-
     <div class="center post-display" >
+
+
+
 <?php session_start();
       if($_SERVER['REQUEST_METHOD'] === 'POST'
         && isset($_SESSION["loggedin"])
         && isset($_SESSION["id"])
         && $_SESSION["loggedin"] === true)
 : ?>
-
+<!-- -->
 <?php
 
       //$url = $_POST["url"];
@@ -27,9 +29,14 @@
       $timestamp = date('Y-m-d g:i:s');
 
       //$validURL = preg_match('/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/i', $url);
-      $validQuestion = strlen($question) <= 300;
+      $validQuestion = strlen($question) <= 3000;
+
+
+      
 
       if($validQuestion) {
+      if (strlen($question)>0)
+      {
 
       require_once('mysqli-connect.php');
 
@@ -53,14 +60,19 @@
       . $timestamp . "\");";
 
       if($conn->query($sql) === TRUE) {
-        echo "Question successfully submitted.<br />";
+        echo "Question successfully submitted.<br /><hr />";
         echo "Click <a href=\"./question-detail.php?qid=" . $conn->insert_id . "\">here</a> to go back to question.";
       } else {
         echo "Error submitting question.<br />";
-        echo $conn->error . "<br />";
+        "<br />";
       }
 
       $conn->close();
+    }
+    else
+    {
+      echo "Question cant be empty!";
+    }
     } else {
       echo "Invalid submission.";
     }
