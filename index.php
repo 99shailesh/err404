@@ -12,6 +12,8 @@
   </head>
 
   <body onload="updateMostRecent(); setInterval( function() { refreshIndex(); }, 5000);">
+  	<header id="fixed-header">
+  		<!-- <a href="./index.php"> <img id="logo" src="logo.png" alt="Quora"/> </a> -->
   	<header id="fixed-header" >
   		<a href="./index.php"> <img id="logo1" src="logo1.png" alt="Quora"/> </a>
   		<?php 
@@ -20,7 +22,10 @@
 	    if($loggedin) : ?>
 	    <a href="./logout.php" id="header-login" class="lg"><button>Logout</button></a>
 	    <?php else : ?>
-  		<a href="./login.php" id="header-login" class="lg"><button>Login</button></a>
+		  <a href="./login.php" id="header-login">Login</a><BR>
+		  <!-- <a href="./signup.php" id="header-login">Signup</a> -->
+  		<!-- <a href="./login.php" id="header-login" class="lg"><button>Login</button></a> -->
+		<!-- <a href="./signup.php" id="header-login" class="lg"><button>SignUp</button></a> -->
   		<?php endif; ?>
 	</header>
 

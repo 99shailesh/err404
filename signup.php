@@ -1,135 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sign up</title>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic' rel='stylesheet' type='text/css'>
- </head>
 
-<body>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signup</title>
 
-<header>
+  <!-- CSS -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/form-elements.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+  <body>
+  	<!-- <header>
   	<a href="./index.php"> <img id="logo" src="logo.png" alt="Quora"/> </a>
-</header>
+  	</header> -->
 
-<?php if($_SERVER['REQUEST_METHOD'] === 'POST') : ?>
-
+  	<h1 id="form-title" class="center">Sign up</h1>
 <?php 
+  if(isset($_SESSION["loggedin"])) {
+  ?>
+      <div class="center post-display">You're already logged in!</div>
+<?php } //end if 
+  else { 
+    ?>
+      <div class="top-content">
+          <div class="inner-bg">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-sm-6 col-sm-offset-3 form-box">
+                        <div class="form-top">
+                          <div class="form-top-left" style="margin-left:45%;">
+                            <h3>SIGNUP</h3>
+                          </div>
+                        </div>
+                        <div class="form-bottom">
+                        <form role="form" action="./verifysignup.php" method="post" class="login-form">
+                          <div class="form-group">
+                            <label class="sr-only">Name</label>
+                            <input type="text" id="uname" name="uname" placeholder="Name..." class="form-username form-control" required="true">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only" for="form-username">email</label>
+                              <input type="text" id="email" name="email" placeholder="Email" class="form-username form-control" required="true">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only" for="form-password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Password" class="form-username form-control" required="true">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only" > Confirm Password</label>
+                            <input type="password" id="pswdconfirm" name="pswdconfirm" placeholder="Confirm password" class="form-username form-control" required="true">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only">Age</label>
+                            <input type="text" id="age" name="age" placeholder="Age" class="form-username form-control" required="true">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only">Gender</label>
+                            <input type="text" id="gender" name="gender" placeholder="Gender" class="form-username form-control" required="true">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only">Profession</label>
+                            <input type="text" id="profession" name="profession" placeholder="Profession..." class="form-username form-control" required="true">
+                          </div>
+                          <button type="submit" class="btn" style="background-color:#4caf50;">Sign Up</button>
 
-$username = $_POST["username"];
-$password = $_POST["password"];
-$pswdconfirm = $_POST["pswdconfirm"];
-$email = $_POST["email"];
-$bday = $_POST["bday"];
+                          <!-- <form role="form" action="./login.php">
+                            <p color:"white">Already a User</p>
+                            <button type="submit" class="btn">Sign in!</button>
+                          </form> -->
+                          <BR><BR>
+                          <p id="signup-prompt;" text-align="center;"> Already have an account? <a href="./login.php">Login!</a></p>
 
-$validUsername = preg_match('/^(?!\s)([A-Z0-9^\S]){8,}/i' , $username);
-$validPassword = preg_match('/([A-Z0-9^\s]){8,}/i', $password);
-$passMatch = $password === $pswdconfirm;
-$validEmail = preg_match('/[A-Z]+@[A-Z]+[.][A-Z]+/i', $email);
-$validBday = preg_match('/([0-9]){4}[-]([0-9]){2}[-]([0-9]){2}/i', $bday);
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div> 
+      </div>
 
-?>
-<div class="center post-display" >
 
-<?php
+      <!-- Javascript -->
+      <script src="assets/js/jquery-1.11.1.min.js"></script>
+      <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+      <script src="assets/js/jquery.backstretch.min.js"></script>
+      <script src="assets/js/scripts.js"></script>
+      
+      <!--[if lt IE 10]>
+          <script src="assets/js/placeholder.js"></script>
+      <![endif]-->
 
-if($validUsername && $validPassword && $passMatch
-	&& $validEmail && $validBday) {
+  </body>
 
-	require_once('../../mysqli-connect.php'); 
+<?php } ?>
 
-	$sql = "CREATE TABLE Users
-		(
-		id int NOT NULL AUTO_INCREMENT,
-		username varchar(255) NOT NULL UNIQUE,
-		password varchar(255) NOT NULL,
-		email varchar(255) NOT NULL UNIQUE,
-		birthday varchar(255) NOT NULL,
-		PRIMARY KEY(id)
-		);";
-	$conn->query($sql);
-	//encrypt passwords
-	$password = md5($_POST["password"]);
-	$pswdconfirm = md5($_POST["pswdconfirm"]);
+    <script type="text/javascript" src="script.js"> </script>
+    <script type="text/javascript" src="script-signup.js"> </script>
 
-	$sql = "INSERT INTO Users(username, password, email, birthday)
-	VALUES ('"
-	. htmlspecialchars($username) . "', '"
-	. htmlspecialchars($password) . "', '"
-	. htmlspecialchars($email) . "', '"
-	. htmlspecialchars($bday) . "');" ;
-
-	if($conn->query($sql) === TRUE) {
-		if(!empty($_FILES["upload"]["name"])) {
-			
-			$last_id = $conn->insert_id;
-			$target_dir = "avatars/";
-			$target_file = $target_dir. "avatar-" . $last_id . ".png";
-			$uploadOk = 1;
-			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
-			// Check if image file is a actual image or fake image
-			$check = getimagesize($_FILES["upload"]["tmp_name"]);
-		    if($check !== false) {
-		        //echo "File is an image - " . $check["mime"] . ".<br />";
-		        $uploadOk = 1;
-		    } else {
-		        echo "File is not an image.<br />";
-		        $uploadOk = 0;
-		    }
-
-			// Check file size
-			if ($_FILES["upload"]["size"] > 500000) {
-			    echo "File is too large.<br />";
-			    $uploadOk = 0;
-			}
-			// Allow certain file formats
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-			&& $imageFileType != "gif" ) {
-			    echo "Only JPG, JPEG, PNG & GIF files are allowed.<br />";
-			    $uploadOk = 0;
-			}
-			// Check if $uploadOk is set to 0 by an error
-			if ($uploadOk == 0) {
-			    echo "Sorry, your file was not uploaded.<br />";
-			// if everything is ok, try to upload file
-			} else {
-			    if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) {
-			        echo "Your avatar has been uploaded.<br />";
-			    } else {
-			        echo "Avatar was too large.<br />";
-			    }
-			}
-		} else {
-			echo "No image set.<br />";
-		}
-
-		echo "Registration successful.<br />";
-
-	} else {
-		echo "Error: could not add user: " . $conn->error . "<br />";
-	}
-} else {
-	echo "Registration error.<br />";
-}
-
-echo "Click <a href=\"./index.php\">here</a> to go to the index page.";
-
-//TESTING CODE, DELETE LATER;
-//$conn->query("DROP TABLE Users;");
-
-$conn->close();
-
-?>
-
-<?php else : ?>
-
-    <div class="center post-display">Error</div>
-
-<?php endif; ?>
-
-</div>
-
-</body>
+  </body>
 </html>
