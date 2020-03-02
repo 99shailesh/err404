@@ -9,7 +9,7 @@
   </head>
   <body>
   	<header id="fixed-header">
-        <a href="./index.php"> <img id="logo" src="logo.png" alt="Quora"/> </a>
+        <a href="./index.php"> <img id="logo" src="logo1.png" alt="Quora"/> </a>
 <?php 
         session_start();
         $loggedin = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
@@ -28,7 +28,7 @@
 	<div id="user-question">
 
 <?php
-    require_once('../../mysqli-connect.php');
+    require_once('mysqli-connect.php');
 
     $qid = $_GET["qid"];
 
@@ -153,3 +153,44 @@
     <?php } ?>
     </body>
 </html>
+
+<style type="text/css">
+  img
+  {
+    
+    border:1px solid white;
+    border-radius: 25%;
+    margin-left:45px;
+    margin-bottom:20px;
+
+  }
+  #form-title
+  {
+    background-color: #379683;
+
+  }
+  button
+   {
+      background-color: #379683;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 20px 10px;
+      cursor: pointer;
+      font-size: 40px;
+}
+ button:hover
+  {
+    opacity:0.5;
+  }
+  text-area
+  {
+    
+    display: inline-block;
+    border: solid 2px blue;
+  }
+  </style>

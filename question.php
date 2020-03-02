@@ -61,7 +61,7 @@
 
       if($conn->query($sql) === TRUE) {
         echo "Question successfully submitted.<br /><hr />";
-        echo "Click <a href=\"./question-detail.php?qid=" . $conn->insert_id . "\">here</a> to go back to question.";
+        echo "<a href=\"./question-detail.php?qid=" . $conn->insert_id . "\"><button>Click here</button></a> to go back to question.";
       } else {
         echo "Error submitting question.<br />";
         "<br />";
@@ -87,3 +87,43 @@
     </div>
   </body>
 </html>
+<style type="text/css">
+  img
+  {
+    
+    border:1px solid white;
+    border-radius: 25%;
+    margin-left:45px;
+    margin-bottom:20px;
+
+  }
+  #form-title
+  {
+    background-color: #379683;
+
+  }
+  button
+   {
+      background-color: #379683;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 20px 10px;
+      cursor: pointer;
+      font-size: 40px;
+}
+ button:hover
+  {
+    opacity:0.5;
+  }
+  text-area
+  {
+    
+    display: inline-block;
+    border: solid 2px blue;
+  }
+  </style>
