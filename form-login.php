@@ -22,7 +22,8 @@
       else { 
         ?>
         
-      <div class="center" id="login-section">
+      <div class="card bg-dark text-white" id="login-section">
+        <div class="card-body">
       <form class="center" name="loginForm" id="login-form"  action="login.php" method="post" enctype="multipart/form-data">
         <!--<label id="error_msg" class="err_msg"></label>-->
 
@@ -36,6 +37,7 @@
         <label id="login-signup-link">Don't have an account?
         <a href="./form-signup.php">Sign up!</a> </label>
       </form>
+    </div>
       </div>
 
         <?php } ?>
