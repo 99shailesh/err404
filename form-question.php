@@ -33,6 +33,13 @@
     session_start();
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) : ?>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
   	<h1 id="form-title" class="center">Submit a Question</h1>
   	<div class="center" id="submit-section">
   		<form class="center" id="submit-form" onsubmit="return validateQA()" action="question.php" method="post" enctype="multipart/form-data">
@@ -63,11 +70,11 @@
 </html>
 
 <style type="text/css">
-  img
+  #logo
   {
     
     border:1px solid white;
-    border-radius: 25%;
+    border-radius: 50%;
     margin-left:45px;
     margin-bottom:20px;
 

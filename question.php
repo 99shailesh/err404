@@ -28,9 +28,15 @@
   	<header>
   	<a href="./index.php"> <img id="logo" src="logo1.png" alt="Quora"/> </a>
   	</header>
+
+    
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <div class="center post-display" >
-
-
 
 <?php session_start();
       if($_SERVER['REQUEST_METHOD'] === 'POST'
@@ -78,7 +84,7 @@
       . $timestamp . "\");";
 
       if($conn->query($sql) === TRUE) {
-        echo "Question successfully submitted.<br /><hr />";
+        echo "<h3>Question successfully submitted</h3>.<br /><hr />";
         echo "<a href=\"./question-detail.php?qid=" . $conn->insert_id . "\"><button>Click here</button></a> to go back to question.";
       } else {
         echo "Error submitting question.<br />";
@@ -106,11 +112,11 @@
   </body>
 </html>
 <style type="text/css">
-  img
+  #logo
   {
     
     border:1px solid white;
-    border-radius: 25%;
+    border-radius: 50%;
     margin-left:45px;
     margin-bottom:20px;
 

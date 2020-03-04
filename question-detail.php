@@ -26,8 +26,15 @@
   </head>
   <body>
   	<header id="fixed-header">
+        <a href="./index.php"> <img id="logo" src="logo1.png" /></a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-        <!--<a href="./index.php"> <img id="logo" src="logo1.png" /> </a>-->
 <?php 
         session_start();
         $loggedin = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
@@ -182,7 +189,7 @@
   {
     
     border:1px solid white;
-    border-radius: 25%;
+    border-radius: 50%;
     margin-left:45px;
     margin-bottom:20px;
 

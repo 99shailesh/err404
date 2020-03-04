@@ -10,7 +10,7 @@ if($highestSet)
 session_start();
 $loggedin = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
 
-require_once('../../mysqli-connect.php');
+require_once('mysqli-connect.php');
 
 if($highestSet) {
 	$sql = "SELECT * FROM Answers WHERE question_id =" . $qid . " AND id>" . $highest . " ORDER BY id DESC";

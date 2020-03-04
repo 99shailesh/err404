@@ -19,7 +19,7 @@
 <?php
     $qid = $_GET["qid"];
 
-    require_once('../../mysqli-connect.php');
+    require_once('mysqli-connect.php');
 
     $qid = $_GET["qid"];
 
